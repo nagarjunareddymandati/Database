@@ -11,3 +11,11 @@ INSERT INTO employee1 VALUES(109,'Shweta','1991-12-23',50000);
 INSERT INTO employee1 VALUES(110,'Anuj','1994-12-19',55000);
 SELECT * FROM employee1;
 UPDATE employee1 SET emp_name='John' WHERE emp_no=101;
+
+select * FROM employee1 WHERE emp_Name LIKE 'j%'
+SELECT emp_Name FROM employee1
+SELECT emp_salary from employee1
+SELECT COUNT(emp_salary) from employee1 
+SELECT AVG(emp_salary) from employee1
+SELECT MAX(emp_salary) from employee1
+SELECT SUM(emp_salary) from employee1
