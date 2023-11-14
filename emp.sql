@@ -19,3 +19,26 @@ SELECT COUNT(emp_salary) from employee1
 SELECT AVG(emp_salary) from employee1
 SELECT MAX(emp_salary) from employee1
 SELECT SUM(emp_salary) from employee1
+DELETE FROM employee1 WHERE emp_no = 102;
+ROLLBACK
+SET IMPLICIT_TRANSACTIONS on
+
+sp_helpdb emp
+CREATE DATABASE myDB
+ALTER DATABASE myDB ADD FILE (NAME='myfile.ndf',SIZE=5MB,FILEGROWTH=10%)
+SHOW CONTENTS myDB
+USE myDB
+GO
+-- Create a table in the database
+CREATE TABLE Employees (EmpID INTEGER NOT NULL PRIMARY KEY, LastName varchar(25) NOT NULL, FirstName varchar(
+    25), BirthDate datetime, Salary float)
+    GO
+    -- Insert data into the new table
+    INSERT INTO Employees (EmpID, LastName, FirstName, BirthDate, Salary)
+    SELECT EmpNo, LastName, FirstName, DOB, Salary
+    FROM employee1
+    GO
+    -- View the contents of the table
+    SELECT * FROM Employees
+    GO
+    -- Drop the table
